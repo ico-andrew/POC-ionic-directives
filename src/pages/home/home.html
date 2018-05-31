@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Ionic Menu Starter</h3>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>TEST Header</ion-label>
+    </ion-list-header>
+    <ion-item role="listitem">
+      <ion-input type="text" test-content [placeholder]="'Test String'" maxlength="8"></ion-input>
+    </ion-item>
+    <ion-item role="listitem">
+      <ion-input type="text" maxlength="5"></ion-input>
+    </ion-item>
+    <ion-item role="listitem">
+      <ion-label test-content >Test</ion-label>
+    </ion-item>
+
+  </ion-list>
+  <p>
+    If you get lost, the
+    <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+  </p>
+
+  <button ion-button secondary menuToggle>Toggle Menu</button>
+</ion-content>
