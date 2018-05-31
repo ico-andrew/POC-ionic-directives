@@ -12,4 +12,21 @@ export class HomePage {
 
   }
 
+  todo = {
+    title: '',
+    description: ''
+  };
+  logForm(form) {
+    console.log(form);
+    console.log(form.valid);
+    console.log(form.invalid);
+    console.log(form.value);
+    console.log(form.submitted);
+    console.log("### title errors");
+    console.log(form.controls.title.errors);
+    console.log(form.controls.title.invalid);
+    console.log(form.controls.title.valid);
+    
+  }
+
 }

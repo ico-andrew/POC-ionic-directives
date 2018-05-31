@@ -29,5 +29,20 @@
     <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
   </p>
 
+
+  <form #form="ngForm" (ngSubmit)="logForm(form)">
+    <ion-item>
+      <ion-label>Todo</ion-label>
+      <ion-input name="title" type="text" required appForbiddenName="bob" [(ngModel)]="todo.title" #title="ngModel" ngControl="title"></ion-input>
+      <!-- <div *ngIf="form.title.errors.required">title is required.</div>
+      <div *ngIf="form.title.errors.forbiddenName">title cannot be Bob.</div> -->
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea name="description" [(ngModel)]="todo.description" ngControl="description"></ion-textarea>
+    </ion-item>
+    <button ion-button type="submit" block>Add Todo</button>
+  </form>
+
   <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
