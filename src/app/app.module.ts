@@ -8,18 +8,18 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {TestContentDirective} from '../directives/test-content/test-content'
- 
+import {DirectivesModule} from '../directives/directives.module'
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    TestContentDirective
+    ListPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    DirectivesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

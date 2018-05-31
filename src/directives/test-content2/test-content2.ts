@@ -8,9 +8,9 @@ import { Label } from 'ionic-angular';
  * Directives.
  */
 @Directive({
-  selector: '[test-content]' // Attribute selector
+  selector: '[test-content2]' // Attribute selector
 })
-export class TestContentDirective implements OnChanges, OnInit {
+export class TestContent2Directive implements OnChanges, OnInit {
 
   constructor(private elmRef: ElementRef) {
   }
@@ -19,7 +19,7 @@ export class TestContentDirective implements OnChanges, OnInit {
     let ele: HTMLElement = this.elmRef.nativeElement;
     ele.setAttribute("placeholder", "Test String");
     console.log(ele);
-    console.log(ele.getAttribute("test-content"));
+    console.log(ele.getAttribute("test-content2"));
   }
 
   ngOnInit() {
@@ -30,13 +30,11 @@ export class TestContentDirective implements OnChanges, OnInit {
   //    console.log(element);
   //  });
     //let test: Element = ele.getElementsByClassName("text-input text-input-md");
-    //let list = ele.getElementsByTagName("input");
-    //let arry = Array.from(list);
-    console.log("Log from directives");
+    console.log("Log from directives V2");
 
     //setAttribute("placeholder", "ABCD")
     //console.log(ele.getElementsByClassName("text-input-md"));
-    //console.log(ele.getAttribute("test-content"));
+    //console.log(ele.getAttribute("test-content2"));
   } 
 
 }
