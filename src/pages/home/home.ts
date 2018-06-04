@@ -16,6 +16,12 @@ export class HomePage {
     { id:7, value:'777777777', text:'777-777-777'}
   ];
 
+  todo = {
+    title: '',
+    description: '',
+    testdropdown: ''
+  };
+
   constructor(injector: Injector, 
             public navCtrl: NavController) {
     
@@ -23,19 +29,18 @@ export class HomePage {
   }
 
   popup() {
-    let ret = this.popupSvc.present(this.accList, this.popupCallback);
+    let component = this;
+    let ret = this.popupSvc.present(this.accList, this.popupCallback, component);
 
   }  
 
-  popupCallback(data) {
+  popupCallback(data, component) {
     console.log("return: " + data);
+    console.log(component);
+    component.todo.testdropdown = data;
   }
 
-  todo = {
-    title: '',
-    description: '',
-    testdropdown: ''
-  };
+
   logForm(form) {
     console.log(form);
     console.log(form.valid);

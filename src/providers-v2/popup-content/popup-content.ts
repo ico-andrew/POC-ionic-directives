@@ -9,7 +9,7 @@ export class PopupContentService {
 
     }
 
-    present(inputs, callback) {
+    present(inputs, callback, component)  {
         
         let pop = this.ctrl.create(PopupContent, {label1:'Please select', inputs:inputs});
         let selectedId;
@@ -17,7 +17,7 @@ export class PopupContentService {
         pop.onDidDismiss(data=>{
             selectedId = data;
             console.log("selected id:" + selectedId);
-            callback(selectedId);
+            callback(selectedId, component);
         });
         pop.present();
     }
