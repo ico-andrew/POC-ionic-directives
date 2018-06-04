@@ -8,13 +8,15 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {DirectivesModule} from '../directives/directives.module'
+import { DirectivesModule } from '../directives/directives.module'
+import { PopupContentService, PopupContent } from '../providers-v2/popup-content/popup-content'
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    PopupContent
   ],
   imports: [
     BrowserModule,
@@ -25,12 +27,14 @@ import {DirectivesModule} from '../directives/directives.module'
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    PopupContent
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PopupContentService
   ]
 })
 export class AppModule {}

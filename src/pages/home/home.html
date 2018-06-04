@@ -26,7 +26,23 @@
   </ion-list>
 
 
+
   <form #form="ngForm" (ngSubmit)="logForm(form)">
+
+      <ion-list>
+          <ion-list-header>
+              <ion-label>Test Popup</ion-label>
+            </ion-list-header>
+    
+            <button name="testdropdown" #testdropdown="ngModel" ion-item (click)="popup()" [(ngModel)]="todo.testdropdown">
+              <ion-label>Label</ion-label>
+              <ion-label>Please select ...</ion-label>
+            </button>
+          <ion-item>
+              <ion-label>End ..</ion-label>
+          </ion-item>
+        </ion-list>
+
     <ion-item>
       <ion-label>Todo</ion-label>
       <ion-input name="title" type="text" required appForbiddenName="bob" [(ngModel)]="todo.title" 

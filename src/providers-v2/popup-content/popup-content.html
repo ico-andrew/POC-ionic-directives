@@ -1,0 +1,16 @@
+
+<ion-list>
+    <ion-list-header>
+        <button ion-button icon-left large color="light" style="background: transparent" (click)="dismiss()">
+            <ion-icon name="ios-close-circle-outline"></ion-icon>
+            {{ label1 }}
+        </button>
+    </ion-list-header>
+
+    <button ion-item *ngFor="let item of inputs" (click)="dismiss(item.id)">
+        {{item.id}} {{item.text}} {{item.value}}
+    </button>
+    <ion-item>
+        <ion-label>End ....</ion-label>
+    </ion-item>
+</ion-list>
