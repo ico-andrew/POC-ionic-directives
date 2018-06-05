@@ -9,23 +9,6 @@
 
 <ion-content padding>
   <h3>Ionic Menu Starter</h3>
-  <ion-list>
-    <ion-list-header>
-      <ion-label>TEST Header</ion-label>
-    </ion-list-header>
-    <ion-item role="listitem">
-      <ion-input type="text" test-content test-content2 [placeholder]="'Test String'" maxlength="8"></ion-input>
-    </ion-item>
-    <ion-item role="listitem">
-      <ion-input type="text" maxlength="5"></ion-input>
-    </ion-item>
-    <ion-item role="listitem">
-      <ion-label>Test</ion-label>
-    </ion-item>
-
-  </ion-list>
-
-
 
   <form #form="ngForm" (ngSubmit)="logForm(form)">
 
@@ -38,25 +21,32 @@
               <ion-label>Label</ion-label>
               <ion-label>Please select ...</ion-label>
             </button> -->
-            <button ion-item (click)="popup()">
+            <!-- <button ion-item (click)="popup()">
                 <ion-label>Label</ion-label>
-                <ion-label>Please select</ion-label>
+                <ion-label type="text">{{ abc }}</ion-label>
                   <ion-icon name="ios-arrow-forward" item-end></ion-icon>
               </button>
-          <button ion-item (click)="popup()">
-              <ion-label>Label</ion-label>
-              <ion-icon name="ios-arrow-forward">Please select ...</ion-icon>
-              
-          </button>
+
           <ion-item>
               <ion-label>Label</ion-label>
-              <ion-input (ionFocus)="popup()" name="testdropdown" #testdropdown="ngModel" [(ngModel)]="todo.testdropdown" placeholder="Please select"></ion-input>
+              <ion-input (click)="popup()" name="testdropdown" #testdropdown="ngModel" [(ngModel)]="todo.testdropdown" placeholder="Please select"></ion-input>
           </ion-item>
           <ion-item>
               <ion-label>End ..</ion-label>
               <ion-input (ionFocus)="popup()" placeholder="ABC"></ion-input>
-          </ion-item>
+          </ion-item> -->
+
+          <button ion-item (click)="popup()">
+              <ion-label>Label</ion-label>
+              <ion-label ngDefaultControl type="text" required name="testdropdown" #testdropdown="ngModel" [(ngModel)]="todo.testdropdown" >{{ todo.testdropdown }}</ion-label>
+                <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+          </button>
+
+
         </ion-list>
+        <div *ngIf="testdropdown.invalid" class="alert alert-danger">
+            <div *ngIf="title.errors.required">Gary is required.</div>
+          </div>
 
     <ion-item>
       <ion-label>Todo</ion-label>
@@ -74,6 +64,20 @@
     </ion-item> -->
     <button ion-button type="submit" block>Add Todo</button>
   </form>
-
+  <ion-list>
+      <ion-list-header>
+        <ion-label>TEST Header</ion-label>
+      </ion-list-header>
+      <ion-item role="listitem">
+        <ion-input type="text" test-content test-content2 [placeholder]="'Test String'" maxlength="8"></ion-input>
+      </ion-item>
+      <ion-item role="listitem">
+        <ion-input type="text" maxlength="5"></ion-input>
+      </ion-item>
+      <ion-item role="listitem">
+        <ion-label>Test</ion-label>
+      </ion-item>
+  
+    </ion-list>
   <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
 </ion-content>

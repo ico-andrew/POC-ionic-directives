@@ -16,7 +16,9 @@ export class PopupContentService {
         console.log(inputs)
         pop.onDidDismiss(data=>{
             selectedId = data;
-            console.log("selected id:" + selectedId);
+            console.log("return: " + data);
+            console.log("inside: " + component);
+    
             callback(selectedId, component);
         });
         pop.present();

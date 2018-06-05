@@ -10,6 +10,7 @@ import { PopupContentService } from '../../providers-v2/popup-content/popup-cont
 export class HomePage {
 
   private popupSvc: PopupContentService;
+  public abc : String = "Please select";
 
   accList = [
     { id:1, value:'123123123', text:'123-123-123'},
@@ -36,6 +37,10 @@ export class HomePage {
 
   popupCallback(data, component) {
     console.log("return: " + data);
+    console.log("abc: " + component);
+    
+    component.abc = data;
+    component.todo.testdropdown = data;
     console.log(component);
     //component.todo.testdropdown = data;
   }
