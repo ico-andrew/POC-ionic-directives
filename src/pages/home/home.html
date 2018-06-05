@@ -38,12 +38,23 @@
               <ion-label>Label</ion-label>
               <ion-label>Please select ...</ion-label>
             </button> -->
-          <ion-item (click)="popup()">
+            <button ion-item (click)="popup()">
+                <ion-label>Label</ion-label>
+                <ion-label>Please select</ion-label>
+                  <ion-icon name="ios-arrow-forward" item-end></ion-icon>
+              </button>
+          <button ion-item (click)="popup()">
               <ion-label>Label</ion-label>
-              <ion-input name="testdropdown" #testdropdown="ngModel" [(ngModel)]="todo.testdropdown" placeholder="Please select"></ion-input>
+              <ion-icon name="ios-arrow-forward">Please select ...</ion-icon>
+              
+          </button>
+          <ion-item>
+              <ion-label>Label</ion-label>
+              <ion-input (ionFocus)="popup()" name="testdropdown" #testdropdown="ngModel" [(ngModel)]="todo.testdropdown" placeholder="Please select"></ion-input>
           </ion-item>
           <ion-item>
               <ion-label>End ..</ion-label>
+              <ion-input (ionFocus)="popup()" placeholder="ABC"></ion-input>
           </ion-item>
         </ion-list>
 

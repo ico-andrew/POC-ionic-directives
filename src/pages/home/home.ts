@@ -37,7 +37,7 @@ export class HomePage {
   popupCallback(data, component) {
     console.log("return: " + data);
     console.log(component);
-    component.todo.testdropdown = data;
+    //component.todo.testdropdown = data;
   }
 
 
