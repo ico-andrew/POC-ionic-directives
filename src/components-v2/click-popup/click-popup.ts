@@ -2,7 +2,7 @@ import { Injector, Component, Input, Output, OnInit, OnChanges} from '@angular/c
 import { Renderer } from '@angular/core'
 import { ModalController, NavParams, ViewController } from 'ionic-angular'
 import { PopupContentService } from '../../providers-v2/popup-content/popup-content'
-import { NgForm, NgModel } from '@angular/forms'
+import { NgForm, NgModel , ControlValueAccessor} from '@angular/forms'
 
 
 @Component({
@@ -19,7 +19,9 @@ export class ClickPopupComponent implements OnInit, OnChanges {
     @Input() dataListValueAttr:String;
     @Input() dataList: any =[];
     @Input() callback: Function;
-    @Input() ngModel: NgModel;
+
+    @Input("ngModelBinding") ngModelBinding: NgModel;
+
 
     private popupSvc: PopupContentService;
 
@@ -31,28 +33,29 @@ export class ClickPopupComponent implements OnInit, OnChanges {
 
     ngOnInit(){
         console.log("On Init data list:" + this.dataList +"|");
+        console.log(this.ngModelBinding);
         
         
     }
 
     ngOnChanges(){
         console.log("On Change data list:" + this.dataList + "|" + this.callback);
-        console.log(this.ngModel);
-        console.log("-----------------------");
     }
 
     popup() {
         let component = this;
         console.log("Popup data list:" + this.dataList);
-        let ret = this.popupSvc.present(this.dataList, this.popupTitleText, this.popupCallback, component);
-    
+        let ret = this.popupSvc.present(this.dataList, this.popupTitleText, this.popupCallback, component, this);
+        
     }  
 
-    popupCallback(data, component) {
+    popupCallback(data, component, popupComponent) {
         if (data) {
+            popupComponent.ngModelBinding.control.setValue(data[component.dataListValueAttr]);
             component.buttonText = data[component.dataListDisplayAttr];
             component.buttonValue = data[component.dataListValueAttr];
         }
+        
         if (component.callback) {
             component.callback();
         }

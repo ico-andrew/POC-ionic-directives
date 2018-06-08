@@ -10,7 +10,7 @@ export class PopupContentService {
 
     }
 
-    present(inputs, titlestr, callback, component)  {
+    present(inputs, titlestr, callback, component, popupComponent)  {
         console.log("title:" + titlestr)
         console.log("attr display:" + component.dataListDisplayAttr)
         let pop = this.ctrl.create(
@@ -25,7 +25,7 @@ export class PopupContentService {
             selectedItem = data;
             //console.log("return: " + data);
             //console.log("inside: " + component);
-            callback(selectedItem, component);
+            callback(selectedItem, component, popupComponent);
         });
         pop.present();
     }

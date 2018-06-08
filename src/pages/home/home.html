@@ -36,12 +36,14 @@
               <ion-input (ionFocus)="popup()" placeholder="ABC"></ion-input>
           </ion-item> -->
 
-          <button ion-item (click)="popup()">
+          <!-- <button ion-item (click)="popup()">
               <ion-label>Label</ion-label>
               <ion-label ngDefaultControl type="text" required name="testdropdown" #testdropdown="ngModel" [(ngModel)]="todo.testdropdown" >{{ todo.testdropdown }}</ion-label>
                 <ion-icon name="ios-arrow-forward" item-end></ion-icon>
-          </button>
+          </button> -->
           <click-popup ngDefaultControl type="text" required 
+          [ngModelBinding]="testdropdown"
+          name="testdropdown" #testdropdown="ngModel" [(ngModel)]="todo.testdropdown"
           buttonText="BUTTON"
           buttonLabel="BUTTON LABEL"
           popupTitleText="POPUP TITLE"

@@ -20,7 +20,7 @@ export class HomePage {
   todo = {
     title: '',
     description: '',
-    testdropdown: ''
+    testdropdown: 'AAAA'
   };
 
   constructor(injector: Injector, 
