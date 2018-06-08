@@ -10,13 +10,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DirectivesModule } from '../directives/directives.module'
 import { PopupContentService, PopupContent } from '../providers-v2/popup-content/popup-content'
+import { ClickPopupComponent } from '../components-v2/click-popup/click-popup'
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ListPage,
-    PopupContent
+    PopupContent,
+    ClickPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import { PopupContentService, PopupContent } from '../providers-v2/popup-content
     MyApp,
     HomePage,
     ListPage,
-    PopupContent
+    PopupContent,
+    ClickPopupComponent
   ],
   providers: [
     StatusBar,

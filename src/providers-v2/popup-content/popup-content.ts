@@ -2,6 +2,7 @@ import { Injectable, Component } from '@angular/core'
 import { Renderer } from '@angular/core';
 import { ModalController, NavParams, ViewController } from 'ionic-angular';
 
+
 @Injectable()
 export class PopupContentService {
     
@@ -9,17 +10,22 @@ export class PopupContentService {
 
     }
 
-    present(inputs, callback, component)  {
+    present(inputs, titlestr, callback, component)  {
+        console.log("title:" + titlestr)
+        console.log("attr display:" + component.dataListDisplayAttr)
+        let pop = this.ctrl.create(
+            PopupContent, 
+            {titlestr:titlestr, inputs:inputs, dataListDisplayAttr:component.dataListDisplayAttr}, 
+            {showBackdrop:true, enableBackdropDismiss:true}
+        );
         
-        let pop = this.ctrl.create(PopupContent, {label1:'Please select', inputs:inputs});
-        let selectedId;
-        console.log(inputs)
+        let selectedItem;
+        //console.log(inputs)
         pop.onDidDismiss(data=>{
-            selectedId = data;
-            console.log("return: " + data);
-            console.log("inside: " + component);
-    
-            callback(selectedId, component);
+            selectedItem = data;
+            //console.log("return: " + data);
+            //console.log("inside: " + component);
+            callback(selectedItem, component);
         });
         pop.present();
     }
@@ -32,22 +38,24 @@ export class PopupContentService {
 })
 export class PopupContent {
 
-    public label1;
+    public titlestr;
     public inputs;
+    public dataListDisplayAttr;
     constructor(
         params: NavParams,
         public renderer: Renderer,
         public viewCtrl: ViewController
       ) {
         this.renderer.setElementClass(viewCtrl.pageRef().nativeElement, 'popup-content', true);
-        this.label1 = params.get('label1');
+        this.titlestr = params.get('titlestr');
         this.inputs = params.get('inputs');
+        this.dataListDisplayAttr = params.get('dataListDisplayAttr');
         //console.log('UserId', params.get('inputs'));
       }
 
-    dismiss(selectedId) {
-       console.log(selectedId);
-        this.viewCtrl.dismiss(selectedId);
+    dismiss(selectedItem) {
+       console.log(selectedItem);
+        this.viewCtrl.dismiss(selectedItem);
         //console.log(data);
     }
 }

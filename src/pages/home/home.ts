@@ -29,22 +29,23 @@ export class HomePage {
     this.popupSvc = injector.get(PopupContentService);
   }
 
-  popup() {
-    let component = this;
-    let ret = this.popupSvc.present(this.accList, this.popupCallback, component);
+  // popup() {
+  //   let component = this;
+  //   let ret = this.popupSvc.present(this.accList, this.popupCallback, component);
 
-  }  
+  // }  
 
-  popupCallback(data, component) {
-    console.log("return: " + data);
-    console.log("abc: " + component);
+  // popupCallback(data, component) {
+  //   console.log("return: " + data);
+  //   console.log("abc: " + component);
     
-    component.abc = data;
-    component.todo.testdropdown = data;
-    console.log(component);
-    //component.todo.testdropdown = data;
-  }
+  //   component.abc = data;
+  //   component.todo.testdropdown = data;
+  //   console.log(component);
+  //   //component.todo.testdropdown = data;
+  // }
 
+  testCallBack() {}
 
   logForm(form) {
     console.log(form);
