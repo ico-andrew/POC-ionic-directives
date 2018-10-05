@@ -57,7 +57,7 @@ export class ClickPopupComponent implements OnInit, OnChanges {
         }
         
         if (component.callback) {
-            component.callback();
+            component.callback(data);
         }
     }
 
